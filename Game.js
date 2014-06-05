@@ -62,6 +62,7 @@ Bugs:
                 fire();
             }
         }
+        tank.fineMovement = event.shiftKey;
         if(event.keyCode == 16){
             tank.fineMovement = true;
         }
