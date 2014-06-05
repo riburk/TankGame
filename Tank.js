@@ -12,15 +12,14 @@
         var cannonAngle = cannonAngle;
         this.cannonUp = false;
         this.cannonDown = false;
+        this.fineMovement = false;
         var maxAngle = 180;
         var minAngle = 0;
-        //locationX = locationX ;
 
         this.setLocation = function(x, y){
             locationX = x - treadWidth/2;
             locationY = y;
         };
-
 
         function circle(x, y, r) {
             tankGame.ctx.beginPath();
@@ -43,12 +42,13 @@
         this.draw = function () {
             tankGame.ctx.fillStyle = "white";
             tankGame.ctx.strokeStyle = "black";
+            var angleDelta = this.fineMovement ? .2 : 1
 
             if(this.cannonUp && cannonAngle < maxAngle) {
-                this.setAngle(cannonAngle + 1);
+                this.setAngle(Math.min(maxAngle, cannonAngle + angleDelta));
             }
             if(this.cannonDown && cannonAngle > minAngle) {
-                this.setAngle(cannonAngle + -1);
+                this.setAngle(Math.max(minAngle, cannonAngle - angleDelta));
             }
 
             // draw cannon
@@ -69,7 +69,7 @@
         };
 
         this.fireCannon = function () {
-            var angle = document.getElementById("angle").value;
+            var angle = document.getElementById("angleDegrees").value;
             var projectileStart = this.muzzleEndLocation();
             var projectile = new tankGame.Projectile(projectileStart.x, projectileStart.y, 2, "black", "white");
             //projectile.draw();
@@ -84,11 +84,16 @@
             document.dispatchEvent(tankGame.cannonAngleChangeEvent)
         };
 
+        this.getAngle = function(){
+            return cannonAngle;
+        };
+
         this.muzzleEndLocation = function () {
             var location = {x: null, y: null};
             location.x = locationX + treadWidth / 2 + cannonLength * Math.cos(cannonAngle * Math.PI / 180);
             location.y = locationY + treadHeight + cannonLength * Math.sin(cannonAngle * Math.PI / 180);
             return location;
-        }
+        };
+
     }
 })(window.tankGame = window.tankGame || {});

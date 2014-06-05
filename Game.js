@@ -39,12 +39,11 @@ Bugs:
         }
     });
     document.addEventListener("cannonAngleChange", function(e){
-        var angleLabel = document.getElementById("angleLabel");
-        angleLabel.innerHTML = 180 - e.angle;
-        var angleSlider = document.getElementById("angle");
-        angleSlider.value = 180 - e.angle;
-
-    })
+        var angleDegreeLabel = document.getElementById("angleDegreeLabel");
+        angleDegreeLabel.innerHTML =  Math.floor(e.angle);
+        var angleSlider = document.getElementById("angleDegrees");
+        angleSlider.value =  180 - e.angle;
+    });
 
 
 
@@ -52,6 +51,7 @@ Bugs:
         if(event.keyCode == 38 ){
             tank.cannonUp = true;
             tank.cannonDown = false;
+
         }
         if(event.keyCode == 40){
             tank.cannonDown = true;
@@ -62,6 +62,9 @@ Bugs:
                 fire();
             }
         }
+        if(event.keyCode == 16){
+            tank.fineMovement = true;
+        }
         return true;
     };
     document.onkeyup = function(event){
@@ -71,6 +74,10 @@ Bugs:
         if(event.keyCode == 40){
             tank.cannonDown = false;
         }
+        if(event.keyCode = 16){
+            tank.fineMovement = false;
+        }
+
         return true;
     };
 
@@ -93,6 +100,7 @@ Bugs:
         document.getElementById("reset").onclick = reset;
         worldBox = new tankGame.Rect().setValues(0, 0, tankGame.WIDTH, tankGame.HEIGHT);
         tank = new tankGame.Tank(2, 81);
+        document.getElementById("angleDegreeLabel").innerHTML = tank.getAngle();
         tankGame.sound.init();
         reset();
     }
@@ -138,11 +146,9 @@ Bugs:
         init();
     };
 
-
-
-    tankGame.onAngleInput = function(val) {
-        var angleLabel = document.getElementById("angleLabel");
-        angleLabel.innerHTML = 180 - val;
+    tankGame.onAngleDegreeInput = function(val) {
+        var angleDegreeLabel = document.getElementById("angleDegreeLabel");
+        angleDegreeLabel.innerHTML = val;
         tank.setAngle(180 - val);
-    }
+    };
 })(window.tankGame = window.tankGame || {});
