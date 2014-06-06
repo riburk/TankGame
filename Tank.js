@@ -42,7 +42,7 @@
         this.draw = function () {
             tankGame.ctx.fillStyle = "white";
             tankGame.ctx.strokeStyle = "black";
-            var angleDelta = this.fineMovement ? .2 : 1
+            var angleDelta = this.fineMovement ? .1 : 1
 
             if(this.cannonUp && cannonAngle < maxAngle) {
                 this.setAngle(Math.min(maxAngle, cannonAngle + angleDelta));

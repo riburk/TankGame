@@ -58,10 +58,8 @@ Bugs:
             tank.cannonUp = false;
         }
         if(event.keyCode == 32){
-            if(projectile == null) {
                 fire();
-            }
-        }
+                }
         tank.fineMovement = event.shiftKey;
         if(event.keyCode == 16){
             tank.fineMovement = true;
@@ -121,8 +119,10 @@ Bugs:
     }
 
     function fire() {
+        if(projectile != null) return;
+
         projectile = tank.fireCannon();
-        projectile.registerForCollisions(surface, tankGame.collision.rebound);
+        projectile.registerForCollisions(surface, tankGame.collision.stick);
         projectile.registerForCollisions(target, tankGame.collision.blowUp);
     }
 
