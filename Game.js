@@ -59,7 +59,7 @@ Bugs:
         }
         if(event.keyCode == 32){
                 fire();
-                }
+        }
         tank.fineMovement = event.shiftKey;
         if(event.keyCode == 16){
             tank.fineMovement = true;
@@ -121,7 +121,7 @@ Bugs:
     function fire() {
         if(projectile != null) return;
 
-        projectile = tank.fireCannon();
+        projectile = tank.fireCannon(document.getElementById("projectileVelocity").value);
         projectile.registerForCollisions(surface, tankGame.collision.stick);
         projectile.registerForCollisions(target, tankGame.collision.blowUp);
     }
@@ -152,4 +152,8 @@ Bugs:
         angleDegreeLabel.innerHTML = val;
         tank.setAngle(180 - val);
     };
+
+    tankGame.onProjectileVelocityInput = function(val) {
+
+    }
 })(window.tankGame = window.tankGame || {});

@@ -68,11 +68,12 @@
             rect(locationX, locationY, treadWidth, treadHeight);
         };
 
-        this.fireCannon = function () {
+        this.fireCannon = function (projectileVelocity) {
             var angle = document.getElementById("angleDegrees").value;
             var projectileStart = this.muzzleEndLocation();
-            var projectile = new tankGame.Projectile(projectileStart.x, projectileStart.y, 2, "black", "white");
-            //projectile.draw();
+            var velocity = projectileVelocity;
+            var projectile = new tankGame.Projectile(projectileStart.x, projectileStart.y, 2, velocity,
+                                                    "black", "white");
             projectile.fire(cannonAngle);
             tankGame.sound.playSound(tankGame.sound.bangBuffer);
             return projectile;

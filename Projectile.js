@@ -22,13 +22,13 @@
         }
     };
 
-    tankGame.Projectile = function(x, y, radius, strokeColor, fillColor ) {
+    tankGame.Projectile = function(x, y, radius, velocity, strokeColor, fillColor ) {
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.strokeColor = strokeColor;
         this.fillColor = fillColor;
-        var initialVelocity = 15;
+        var initialVelocity = velocity;
         var dx = 0, dy = 0;
         var collisionCheckArray = [];
         this.firing = false;
