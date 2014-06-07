@@ -15,7 +15,8 @@ Bugs:
     tankGame.animationInterval = null;
     var target;
     tankGame.scaleFactor = 1;
-    const numGroundSegments = 8;
+    var numGroundSegments, initialGroundSegments = 8;
+    var tryCount = 0;
     var projectile;
     var surface;
     var worldBox;
@@ -26,11 +27,17 @@ Bugs:
     tankGame.projectileBounceEvent = new Event("projectileBounce");
     tankGame.cannonAngleChangeEvent = new Event("cannonAngleChange");
 
-    document.addEventListener("explosionStart", function(e){projectile = null});
+    document.addEventListener("explosionStart", function(e){
+        tryCount = 0;
+        projectile = null;
+    });
     document.addEventListener("explosionEnd", function(e){
-        setTimeout(reset, 2000)
+        setTimeout(levelUp, 2000);
     });
     document.addEventListener("projectileMiss", function(e){
+        if(tryCount++ >= 3){
+            restart();
+        }
         setTimeout(function(){projectile = null}, 500);
     });
     document.addEventListener("projectileBounce", function(e){
@@ -91,24 +98,30 @@ Bugs:
         tankGame.ctx.clearRect(0, 0, tankGame.WIDTH, tankGame.HEIGHT);
     }
 
-    function init() {
+    function init(){
         canvas = document.getElementById("canvas");
         tankGame.ctx = canvas.getContext("2d");
         tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
-        document.getElementById("detonate").onclick = fire;
-        document.getElementById("reset").onclick = reset;
+        restart();
+    }
+
+    function restart() {
+        document.getElementById("fire").onclick = fire;
+        document.getElementById("restart").onclick = restart;
+        tryCount = 0;
+        numGroundSegments = initialGroundSegments;
         worldBox = new tankGame.Rect().setValues(0, 0, tankGame.WIDTH, tankGame.HEIGHT);
         tank = new tankGame.Tank(2, 81);
         document.getElementById("angleDegreeLabel").innerHTML = tank.getAngle();
         tankGame.sound.init();
-        reset();
+        levelUp();
     }
 
-    function reset() {
+    function levelUp() {
         clearInterval(tankGame.animationInterval);
         worldBox.draw("black", "#FAF7F8")
 
-        surface = new tankGame.Surface(numGroundSegments);
+        surface = new tankGame.Surface(numGroundSegments++);
         target = createTarget(50, 5);
         target.registerForCollisions(surface, tankGame.collision.rebound);
         var tankLocationY = surface.surfaceArray[1].height + 1;
