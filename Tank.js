@@ -9,7 +9,6 @@
         var turretRadius = 4 * scaleFactor;
         var cannonWidth = 2 * scaleFactor;
         var cannonLength = 10 * scaleFactor;
-        var cannonAngle = cannonAngle;
         this.cannonUp = false;
         this.cannonDown = false;
         this.fineMovement = false;
@@ -42,7 +41,7 @@
         this.draw = function () {
             tankGame.ctx.fillStyle = "white";
             tankGame.ctx.strokeStyle = "black";
-            var angleDelta = this.fineMovement ? .1 : 1
+            var angleDelta = this.fineMovement ? .1 : 1;
 
             if(this.cannonUp && cannonAngle < maxAngle) {
                 this.setAngle(Math.min(maxAngle, cannonAngle + angleDelta));
@@ -71,8 +70,7 @@
         this.fireCannon = function (projectileVelocity) {
             var angle = document.getElementById("angleDegrees").value;
             var projectileStart = this.muzzleEndLocation();
-            var velocity = projectileVelocity;
-            var projectile = new tankGame.Projectile(projectileStart.x, projectileStart.y, 2, velocity,
+            var projectile = new tankGame.Projectile(projectileStart.x, projectileStart.y, 2, projectileVelocity,
                                                     "black", "white");
             projectile.fire(cannonAngle);
             tankGame.sound.playSound(tankGame.sound.bangBuffer);

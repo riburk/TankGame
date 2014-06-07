@@ -39,7 +39,7 @@
             }
             this.drawCycleCount++;
         }
-    }
+    };
 
     tankGame.Block.prototype = new tankGame.Rect();
     tankGame.Block.prototype.constructor = tankGame.Block;

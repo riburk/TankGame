@@ -36,14 +36,11 @@
                 bottom = this.y;
                 left = this.x;
                 right = this.x + this.width;
-                width = this.width;
-                height = this.height;
             } else if (this instanceof tankGame.Circle) {
                 top = this.y + this.radius;
                 bottom = this.y - this.radius;
                 left = this.x - this.radius;
                 right = this.x + this.radius;
-                width = height = 2 * this.radius;
             }
 
             // if striking the top
@@ -96,4 +93,4 @@
             }
         }
     }
-})(window.tankGame = window.tankGame || {})
+})(window.tankGame = window.tankGame || {});

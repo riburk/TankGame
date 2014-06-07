@@ -119,7 +119,7 @@ Bugs:
 
     function levelUp() {
         clearInterval(tankGame.animationInterval);
-        worldBox.draw("black", "#FAF7F8")
+        worldBox.draw("black", "#FAF7F8");
 
         surface = new tankGame.Surface(numGroundSegments++);
         target = createTarget(50, 5);

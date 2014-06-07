@@ -13,7 +13,7 @@
         }
 
         function generateGroundArray(numGroundSegments) {
-            groundArray = new Array();
+            groundArray = [];
             for (var i = 0; i < numGroundSegments; i++) {
                 groundArray.push(Math.random() * 9 * 30 + 20)
             }
@@ -39,7 +39,7 @@
                 }
             }
         }
-    }
+    };
 
     function SurfaceBlock(x, y, width, height){
         this.x = x;
@@ -50,4 +50,4 @@
     SurfaceBlock.prototype = new tankGame.Rect();
     SurfaceBlock.prototype.constructor = SurfaceBlock;
 
-})(window.tankGame = window.tankGame || {})
+})(window.tankGame = window.tankGame || {});
