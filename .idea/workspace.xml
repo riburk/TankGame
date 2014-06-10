@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="754814c9-02dd-4821-9e30-38de570709d2" name="Default" comment="Fixing some unterminated statements, removing unused files.">
+    <list default="true" id="754814c9-02dd-4821-9e30-38de570709d2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TankGame.iws" />
@@ -38,7 +38,7 @@
       <file leaf-file-name="workspace.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8820">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8880">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -308,7 +308,11 @@
       <created>1402101270737</created>
       <updated>1402101270737</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Updates to workspace">
+      <created>1402434085417</created>
+      <updated>1402434085417</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -370,7 +374,8 @@
     <MESSAGE value="Updating the workspace.xml" />
     <MESSAGE value="Implemented leveling up.  Giving the user 4 tries before starting over.  Successful hit allows leveling up and increasing the ground segments by one." />
     <MESSAGE value="Fixing some unterminated statements, removing unused files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing some unterminated statements, removing unused files." />
+    <MESSAGE value="Updates to workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates to workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
