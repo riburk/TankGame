@@ -21,6 +21,7 @@
             this.collisionCheckArray.push({obj: object, collisionFunction: callback});
         };
 
+
         this.render = function () {
             this.dy -= .2 * tankGame.scaleFactor;
 
