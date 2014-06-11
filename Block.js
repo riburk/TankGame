@@ -21,6 +21,7 @@
             this.collisionCheckArray.push({obj: object, collisionFunction: callback});
         };
 
+
         this.render = function () {
             this.dy -= .2 * tankGame.scaleFactor;
 
@@ -39,7 +40,7 @@
             }
             this.drawCycleCount++;
         }
-    }
+    };
 
     tankGame.Block.prototype = new tankGame.Rect();
     tankGame.Block.prototype.constructor = tankGame.Block;

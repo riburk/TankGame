@@ -57,4 +57,4 @@
             xhr.send();
         }
     }
-})(window.tankGame = window.tankGame || {})
+})(window.tankGame = window.tankGame || {});

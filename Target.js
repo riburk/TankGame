@@ -56,7 +56,7 @@
 
         this.explode = function () {
             exploding = true;
-        }
+        };
 
         this.registerForCollisions = function (object, callback) {
             for(var i = 0; i < gridSize; i++){
