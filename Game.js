@@ -1,12 +1,3 @@
-
-/*
-Bugs:
-2. bonk sound is delayed
-4. Many times the shot is not makable due to obstructions in front of cannon or target
-5. Target can be hit again after it has exploded and is not visible
- */
-
-
 (function(tankGame) {
     var canvas;
     tankGame.ctx = null;
@@ -26,6 +17,7 @@ Bugs:
     tankGame.projectileMissEvent = new Event("projectileMiss");
     tankGame.projectileBounceEvent = new Event("projectileBounce");
     tankGame.cannonAngleChangeEvent = new Event("cannonAngleChange");
+    var projectileVelocityEl;
 
     document.addEventListener("explosionStart", function(e){
         tryCount = 0;
@@ -55,22 +47,34 @@ Bugs:
 
 
     document.onkeydown = function(event){
+        tank.fineMovement = event.shiftKey;
+
         if(event.keyCode == 38 ){
             tank.cannonUp = true;
             tank.cannonDown = false;
 
         }
-        if(event.keyCode == 40){
+        else if(event.keyCode == 40){
             tank.cannonDown = true;
             tank.cannonUp = false;
         }
-        if(event.keyCode == 32){
+        else if(event.keyCode == 32){
                 fire();
         }
-        tank.fineMovement = event.shiftKey;
-        if(event.keyCode == 16){
+        else if(event.keyCode == 16){
             tank.fineMovement = true;
         }
+
+        else if(event.keyCode == 37){
+            projectileVelocityEl.value -= .1;
+            document.getElementById("projectileVelocityLabel").innerHTML = projectileVelocityEl.value;
+        }
+        else if(event.keyCode == 39){
+            // this is a strange way to calculate it, but javascript was giving an incorrect value for += .1
+            projectileVelocityEl.value = (projectileVelocityEl.value * 10 + 1)/10;
+            document.getElementById("projectileVelocityLabel").innerHTML = projectileVelocityEl.value;
+        }
+
         return true;
     };
     document.onkeyup = function(event){
@@ -102,6 +106,7 @@ Bugs:
         canvas = document.getElementById("canvas");
         tankGame.ctx = canvas.getContext("2d");
         tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
+        projectileVelocityEl = document.getElementById("projectileVelocity");
         restart();
     }
 
@@ -167,6 +172,7 @@ Bugs:
     };
 
     tankGame.onProjectileVelocityInput = function(val) {
-
+        var projectileVelocityLabel = document.getElementById("projectileVelocityLabel");
+        projectileVelocityLabel.innerHTML = val;
     }
 })(window.tankGame = window.tankGame || {});
