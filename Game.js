@@ -18,6 +18,9 @@
     tankGame.projectileBounceEvent = new Event("projectileBounce");
     tankGame.cannonAngleChangeEvent = new Event("cannonAngleChange");
     var projectileVelocityEl;
+    var gameScore = 0;
+    tankGame.levelScore = 0;
+    var gameLevel = 0;
 
     document.addEventListener("explosionStart", function(e){
         tryCount = 0;
@@ -27,6 +30,9 @@
         setTimeout(levelUp, 2000);
     });
     document.addEventListener("projectileMiss", function(e){
+        tankGame.levelScore -= Math.floor(tankGame.levelScore / 4);
+        document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
+
         if(tryCount++ >= 3){
             restart();
         }
@@ -118,6 +124,10 @@
         worldBox = new tankGame.Rect().setValues(0, 0, tankGame.WIDTH, tankGame.HEIGHT);
         tank = new tankGame.Tank(2, 81);
         document.getElementById("angleDegreeLabel").innerHTML = tank.getAngle();
+        gameScore = 0;
+        gameLevel = 0;
+        tankGame.levelScore = 0;
+        document.getElementById("gameScoreLabel").innerHTML = gameScore.toString();
         tankGame.sound.init();
         levelUp();
     }
@@ -133,6 +143,12 @@
         var tankLocationX = 1.5 * surface.segmentWidth;
         tank.setLocation(tankLocationX, tankLocationY);
         projectile = null;
+        gameScore += tankGame.levelScore;
+        document.getElementById("gameScoreLabel").innerHTML = gameScore.toString();
+        gameLevel++;
+        tankGame.levelScore = 500 + (gameLevel * 100);
+        document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
+
         tankGame.animationInterval = setInterval(draw, 15);
     }
 

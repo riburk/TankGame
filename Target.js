@@ -13,12 +13,14 @@
         this.width = size;
         this.fillColor = "black";
         this.strokeColor = "black";
+        this.showScore = true;
         var explosionArc = 120;
         var blockArray = [];
         var blockSize = Math.floor(size / gridSize);
         var dx, dy, angle;
         var exploding = false;
         var arcSlice = explosionArc / gridSize;
+        var scoreHeightModifier = 0;
 
         for (var i = 0; i < gridSize; i++) {
             blockArray.push([]);
@@ -30,10 +32,21 @@
             }
         }
 
+        function drawScore() {
+            if(scoreHeightModifier > 100) return;
+            tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
+            tankGame.ctx.fillStyle = "black"
+            tankGame.ctx.font = "50px Georgia";
+            tankGame.ctx.fillText(tankGame.levelScore, this.x, tankGame.HEIGHT - (this.y + 100) - scoreHeightModifier++);
+            tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
+        }
+
         this.render = function () {
             if (!exploding) {
                 return this.draw();
             }
+            drawScore.call(this);
+
             for (var rowNum in blockArray) {
                 for (var colNum in blockArray[rowNum]) {
                     if (blockArray[rowNum][colNum].stationaryCycleCount >= MAX_STATIONARY_CYCLES ||
