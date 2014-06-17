@@ -35,7 +35,7 @@
         function drawScore() {
             if(scoreHeightModifier > 100) return;
             tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
-            tankGame.ctx.fillStyle = "black"
+            tankGame.ctx.fillStyle = "black";
             tankGame.ctx.font = "50px Georgia";
             tankGame.ctx.fillText(tankGame.levelScore, this.x, tankGame.HEIGHT - (this.y + 100) - scoreHeightModifier++);
             tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);

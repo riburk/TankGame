@@ -29,12 +29,29 @@
     document.addEventListener("explosionEnd", function(e){
         setTimeout(levelUp, 2000);
     });
+
+    function showGameOverMessage() {
+        document.getElementById("fire").onclick = null;
+        setTimeout(function(){
+                document.getElementById("gameOver").setAttribute("style", "display: block");
+                document.getElementById("restart").focus();
+            }, 500);
+    }
+
+    function hideGameOverMessage() {
+        document.getElementById("gameOver").setAttribute("style", "display: none");
+        document.getElementById("fire").onclick = fire;
+    }
+
+
+
     document.addEventListener("projectileMiss", function(e){
         tankGame.levelScore -= Math.floor(tankGame.levelScore / 4);
         document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
 
         if(tryCount++ >= 3){
-            restart();
+            showGameOverMessage();
+            //restart();
         }
         setTimeout(function(){projectile = null}, 500);
     });
@@ -117,8 +134,9 @@
     }
 
     function restart() {
-        document.getElementById("fire").onclick = fire;
-        document.getElementById("restart").onclick = restart;
+        hideGameOverMessage();
+        var restartBtn = document.getElementById("restart");
+        restartBtn.onclick = restart;
         tryCount = 0;
         numGroundSegments = initialGroundSegments;
         worldBox = new tankGame.Rect().setValues(0, 0, tankGame.WIDTH, tankGame.HEIGHT);

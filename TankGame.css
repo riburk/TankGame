@@ -7,3 +7,28 @@ input[type="button"] {
 input[type="range"]{
     width: 500px;
 }
+
+div#gameOver {
+    display: none;
+    position: absolute;
+    left: 350px;
+    top: 100px;
+    font-size: 100px;
+    z-index: 101;
+    color: black;
+    background-color: lightgray;
+    padding: 50px;
+}
+
+canvas#canvas {
+    z-index: 100;
+}
+
+input#restart {
+    position: relative;
+    left: 40%;
+}
+
+br {
+    line-height: 20px;
+}
