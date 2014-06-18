@@ -31,7 +31,8 @@
     });
 
     function showGameOverMessage() {
-        document.getElementById("fire").onclick = null;
+        disableControls();
+        removeKeyHandlers();
         setTimeout(function(){
                 document.getElementById("gameOver").setAttribute("style", "display: block");
                 document.getElementById("restart").focus();
@@ -40,7 +41,6 @@
 
     function hideGameOverMessage() {
         document.getElementById("gameOver").setAttribute("style", "display: none");
-        document.getElementById("fire").onclick = fire;
     }
 
 
@@ -51,7 +51,6 @@
 
         if(tryCount++ >= 3){
             showGameOverMessage();
-            //restart();
         }
         setTimeout(function(){projectile = null}, 500);
     });
@@ -68,51 +67,69 @@
     });
 
 
+    function addKeyHandlers() {
+        document.onkeydown = function (event) {
+            tank.fineMovement = event.shiftKey;
 
-    document.onkeydown = function(event){
-        tank.fineMovement = event.shiftKey;
+            if (event.keyCode == 38) {
+                tank.cannonUp = true;
+                tank.cannonDown = false;
 
-        if(event.keyCode == 38 ){
-            tank.cannonUp = true;
-            tank.cannonDown = false;
-
-        }
-        else if(event.keyCode == 40){
-            tank.cannonDown = true;
-            tank.cannonUp = false;
-        }
-        else if(event.keyCode == 32){
+            }
+            else if (event.keyCode == 40) {
+                tank.cannonDown = true;
+                tank.cannonUp = false;
+            }
+            else if (event.keyCode == 32) {
                 fire();
-        }
-        else if(event.keyCode == 16){
-            tank.fineMovement = true;
-        }
+            }
+            else if (event.keyCode == 16) {
+                tank.fineMovement = true;
+            }
 
-        else if(event.keyCode == 37){
-            projectileVelocityEl.value -= .1;
-            document.getElementById("projectileVelocityLabel").innerHTML = projectileVelocityEl.value;
-        }
-        else if(event.keyCode == 39){
-            // this is a strange way to calculate it, but javascript was giving an incorrect value for += .1
-            projectileVelocityEl.value = (projectileVelocityEl.value * 10 + 1)/10;
-            document.getElementById("projectileVelocityLabel").innerHTML = projectileVelocityEl.value;
-        }
+            else if (event.keyCode == 37) {
+                projectileVelocityEl.value -= .1;
+                document.getElementById("projectileVelocityLabel").innerHTML = projectileVelocityEl.value;
+            }
+            else if (event.keyCode == 39) {
+                // this is a strange way to calculate it, but javascript was giving an incorrect value for += .1
+                projectileVelocityEl.value = (projectileVelocityEl.value * 10 + 1) / 10;
+                document.getElementById("projectileVelocityLabel").innerHTML = projectileVelocityEl.value;
+            }
 
-        return true;
-    };
-    document.onkeyup = function(event){
-        if(event.keyCode == 38){
-            tank.cannonUp = false;
-        }
-        if(event.keyCode == 40){
-            tank.cannonDown = false;
-        }
-        if(event.keyCode = 16){
-            tank.fineMovement = false;
-        }
+            return true;
+        };
+        document.onkeyup = function (event) {
+            if (event.keyCode == 38) {
+                tank.cannonUp = false;
+            }
+            if (event.keyCode == 40) {
+                tank.cannonDown = false;
+            }
+            if (event.keyCode = 16) {
+                tank.fineMovement = false;
+            }
 
-        return true;
-    };
+            return true;
+        };
+    }
+
+    function removeKeyHandlers(){
+        document.onkeydown = null;
+        document.onkeyup = null;
+    }
+
+    function enableControls(){
+        document.getElementById("fire").disabled = false;;
+        document.getElementById("angleDegrees").disabled = false;
+        document.getElementById("projectileVelocity").disabled = false;
+    }
+
+    function disableControls(){
+        document.getElementById("fire").disabled = true;
+        document.getElementById("angleDegrees").disabled = true;
+        document.getElementById("projectileVelocity").disabled = true;
+    }
 
     function createTarget(size, initialVelocity) {
         var targetSegment = surface.surfaceArray.length - Math.floor(Math.random() * 5) - 1;
@@ -135,6 +152,8 @@
 
     function restart() {
         hideGameOverMessage();
+        addKeyHandlers();
+        enableControls();
         var restartBtn = document.getElementById("restart");
         restartBtn.onclick = restart;
         tryCount = 0;
