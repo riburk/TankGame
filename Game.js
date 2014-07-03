@@ -216,7 +216,25 @@
 
     window.onload = function(e) {
         init();
+        onResize();
     };
+
+    function onResize(){
+        // Our canvas must cover full width of screen
+        // regardless of the resolution
+        var width = window.innerWidth-1;
+
+        // So we need to calculate the proper scaled width
+        // that should work well with every resolution
+        var ratio = canvas.height/canvas.width;
+        var height = width * ratio;
+
+        canvas.style.width = width+'px';
+        canvas.style.height = height+'px';
+
+    }
+
+    window.addEventListener('resize', onResize, false);
 
     tankGame.onAngleDegreeInput = function(val) {
         var angleDegreeLabel = document.getElementById("angleDegreeLabel");

@@ -32,3 +32,7 @@ input#restart {
 br {
     line-height: 20px;
 }
+
+body {
+    margin: 0;
+}
