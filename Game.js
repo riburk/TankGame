@@ -147,6 +147,7 @@
         tankGame.ctx = canvas.getContext("2d");
         tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
         projectileVelocityEl = document.getElementById("projectileVelocity");
+        document.getElementById("fireButton").addEventListener('click', fire, false);
         restart();
     }
 
