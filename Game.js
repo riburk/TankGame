@@ -47,7 +47,7 @@
 
     document.addEventListener("projectileMiss", function(e){
         tankGame.levelScore -= Math.floor(tankGame.levelScore / 4);
-        document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
+//        document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
 
         if(tryCount++ >= 3){
             showGameOverMessage();
@@ -61,7 +61,7 @@
     });
     document.addEventListener("cannonAngleChange", function(e){
         var angleDegreeLabel = document.getElementById("angleDegreeLabel");
-        angleDegreeLabel.innerHTML =  Math.floor(e.angle);
+        angleDegreeLabel.innerHTML =  Math.floor(e.angle * 10)/10;
         var angleSlider = document.getElementById("angleDegrees");
         angleSlider.value =  180 - e.angle;
     });
@@ -120,13 +120,13 @@
     }
 
     function enableControls(){
-        document.getElementById("fire").disabled = false;;
+        document.getElementById("fireButton").disabled = false;;
         document.getElementById("angleDegrees").disabled = false;
         document.getElementById("projectileVelocity").disabled = false;
     }
 
     function disableControls(){
-        document.getElementById("fire").disabled = true;
+        document.getElementById("fireButton").disabled = true;
         document.getElementById("angleDegrees").disabled = true;
         document.getElementById("projectileVelocity").disabled = true;
     }
@@ -161,10 +161,11 @@
         worldBox = new tankGame.Rect().setValues(0, 0, tankGame.WIDTH, tankGame.HEIGHT);
         tank = new tankGame.Tank(2, 81);
         document.getElementById("angleDegreeLabel").innerHTML = tank.getAngle();
+        document.getElementById("projectileVelocityLabel").innerHTML = document.getElementById("projectileVelocity").value;
         gameScore = 0;
         gameLevel = 0;
         tankGame.levelScore = 0;
-        document.getElementById("gameScoreLabel").innerHTML = gameScore.toString();
+        document.getElementById("gameScoreValue").innerHTML = gameScore.toString();
         tankGame.sound.init();
         levelUp();
     }
@@ -181,10 +182,10 @@
         tank.setLocation(tankLocationX, tankLocationY);
         projectile = null;
         gameScore += tankGame.levelScore;
-        document.getElementById("gameScoreLabel").innerHTML = gameScore.toString();
+        document.getElementById("gameScoreValue").innerHTML = gameScore.toString();
         gameLevel++;
         tankGame.levelScore = 500 + (gameLevel * 100);
-        document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
+        //document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
 
         tankGame.animationInterval = setInterval(draw, 15);
     }
@@ -220,18 +221,12 @@
     };
 
     function onResize(){
-        // Our canvas must cover full width of screen
-        // regardless of the resolution
         var width = window.innerWidth-1;
-
-        // So we need to calculate the proper scaled width
-        // that should work well with every resolution
         var ratio = canvas.height/canvas.width;
         var height = width * ratio;
 
         canvas.style.width = width+'px';
         canvas.style.height = height+'px';
-
     }
 
     window.addEventListener('resize', onResize, false);

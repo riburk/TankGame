@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Tank Game</title>
     <link rel="stylesheet" type="text/css" href="TankGame.css">
     <script src="Rect.js" type="text/javascript"></script>
@@ -28,15 +28,24 @@
     </div>
 
 </section>
-<input id="fire" type="button" value="fire"/>
-<input id="angleDegrees" type="range" max="180" min="0" step=".1" value="99" oninput="tankGame.onAngleDegreeInput(this.value)"/>
-<label id="angleDegreeLabel"></label>
-<p/>
-<input id="projectileVelocity" type="range" max="20" min="10" step=".1" value="15" oninput="tankGame.onProjectileVelocityInput(this.value)"/>
-<label id="projectileVelocityLabel"></label>
-<p/>
-Level Score:<label id="levelScoreLabel"></label>
-Score:<label id="gameScoreLabel"></label>
+<section id="controls">
+    <div id="tankControls">
+        <div id="angle">
+            <input id="angleDegrees" type="range" max="180" min="0" step=".1" value="99"
+                   oninput="tankGame.onAngleDegreeInput(this.value)"/>
+            <label id="angleDegreeLabel"></label>
+        </div>
+        <div id="velocity">
+            <input id="projectileVelocity" type="range" max="20" min="10" step=".1" value="15"
+                   oninput="tankGame.onProjectileVelocityInput(this.value)"/>
+            <label id="projectileVelocityLabel"></label>
+        </div>
+    </div>
+    <div id="fire">
+        <input id="fireButton" type="button" value="fire"/>
+    </div>
+    <div id="score"><label id="gameScoreLabel">Score: </label><label id="gameScoreValue"></label></div>
+</section>
 </body>
 
 </html>

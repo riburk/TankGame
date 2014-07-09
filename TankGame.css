@@ -5,7 +5,8 @@ input[type="button"] {
 }
 
 input[type="range"]{
-    width: 500px;
+    /*right-margin: 20px;*/
+    width: 90%;
 }
 
 div#gameOver {
@@ -36,3 +37,39 @@ br {
 body {
     margin: 0;
 }
+
+div#tankControls{
+    display: inline-block;
+    width: 60%;
+    padding-right: 20px;
+}
+
+div#fire{
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+    position: relative;
+    top: -10px;
+}
+
+input#fireButton{
+    width: 100%;
+}
+
+div#score{
+    display: inline-block;
+    width: 26%;
+    font-size: 30px;
+    border: 1px solid black;
+}
+
+div{
+    /*border: 1px solid red;*/
+}
+
+
+
+label#gameScoreLabel{
+    margin-left: 20px;
+}
+
