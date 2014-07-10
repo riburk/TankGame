@@ -50,8 +50,8 @@
             }
             // if striking the bottom
             else if (top < other.y) {
-                this.x = this.x + this.dx * Math.abs(((other.y - radius) - this.y) / this.dy);
-                this.y = other.y - radius;
+                this.x = this.x + this.dx * Math.abs(((other.y - this.radius) - this.y) / this.dy);
+                this.y = other.y - this.radius;
             }
             // if striking left side
             else if (right < other.x) {
@@ -68,6 +68,40 @@
             tankGame.sound.stopSound();
             tankGame.sound.playSound(tankGame.sound.bonkBuffer);
             document.dispatchEvent(tankGame.projectileMissEvent);
+        },
+
+        bounce: function(other){
+            var top, bottom, left, right, width, height;
+            if (this instanceof tankGame.Rect) {
+                top = this.y + this.height;
+                bottom = this.y;
+                left = this.x;
+                right = this.x + this.width;
+            } else if (this instanceof tankGame.Circle) {
+                top = this.y + this.radius;
+                bottom = this.y - this.radius;
+                left = this.x - this.radius;
+                right = this.x + this.radius;
+            }
+            // if striking a vertical side
+            if (right < other.x || left > other.x + other.width) {
+                this.dx = -this.dx * .7;
+                document.dispatchEvent(tankGame.projectileBounceEvent);
+            } else {
+                // if striking the top
+                if (bottom > other.y + other.height) {
+                    this.x = this.x + this.dx * Math.abs((this.y - (other.y + other.height + this.radius)) / this.dy);
+                    this.y = other.y + other.height + this.radius;
+                }
+                // if striking the bottom
+                else if (top < other.y) {
+                    this.x = this.x + this.dx * Math.abs(((other.y - this.radius) - this.y) / this.dy);
+                    this.y = other.y - this.radius;
+                }
+                this.dx = this.dy = 0;
+                this.firing = false;
+                document.dispatchEvent(tankGame.projectileMissEvent);
+            }
         },
 
         reset: function (other) {

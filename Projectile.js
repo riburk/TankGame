@@ -57,6 +57,7 @@
 
             if (this.x + this.radius > tankGame.WIDTH || this.x + this.dx - this.radius < 0) {
                 this.dx = -this.dx;
+                document.dispatchEvent(tankGame.projectileBounceEvent);
             }
             var oldDy = this.dy;
             this.dy -= .2 * tankGame.scaleFactor;

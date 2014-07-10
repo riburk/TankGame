@@ -12,6 +12,7 @@
         bangBuffer : null,
         boomBuffer : null,
         bonkBuffer : null,
+        boingBuffer : null,
         whistleBuffer : null,
 
         init : function() {
@@ -19,18 +20,20 @@
             tankGame.sound.loadSoundFile("Explosion.wav", "boomBuffer");
             tankGame.sound.loadSoundFile("Miss.wav", "bonkBuffer");
             tankGame.sound.loadSoundFile("Whistle.wav", "whistleBuffer");
+            tankGame.sound.loadSoundFile("boing_spring.wav", "boingBuffer");
+
         },
 
         stopSound : function() {
             if (tankGame.sound.source) {
-                tankGame.sound.source = '';
+                tankGame.sound.source.stop(0);
             }
         },
 
-        playSound: function(buffer, currentTime) {
-            tankGame.sound.currentTime = currentTime || 0;
+        playSound: function(buffer, offset) {
             // source is global so we can unset it later to stop the sound.
             tankGame.sound.source = tankGame.sound.context.createBufferSource();
+            tankGame.sound.source.offset = offset || 0;
             tankGame.sound.source.buffer = buffer;
             tankGame.sound.source.loop = false;
             tankGame.sound.source.connect(tankGame.sound.context.destination);

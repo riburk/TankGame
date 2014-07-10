@@ -47,7 +47,8 @@
 
     document.addEventListener("projectileMiss", function(e){
         tankGame.levelScore -= Math.floor(tankGame.levelScore / 4);
-//        document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
+        tankGame.sound.stopSound();
+        tankGame.sound.playSound(tankGame.sound.bonkBuffer);
 
         if(tryCount++ >= 3){
             showGameOverMessage();
@@ -55,9 +56,11 @@
         setTimeout(function(){projectile = null}, 500);
     });
     document.addEventListener("projectileBounce", function(e){
-        if(projectile.bounceCount++ > 2) {
+        if(projectile.bounceCount++ > 3) {
             projectile = null;
         }
+        tankGame.sound.stopSound();
+        tankGame.sound.playSound(tankGame.sound.boingBuffer);
     });
     document.addEventListener("cannonAngleChange", function(e){
         var angleDegreeLabel = document.getElementById("angleDegreeLabel");
@@ -195,7 +198,7 @@
         if(projectile != null) return;
 
         projectile = tank.fireCannon(document.getElementById("projectileVelocity").value);
-        projectile.registerForCollisions(surface, tankGame.collision.stick);
+        projectile.registerForCollisions(surface, tankGame.collision.bounce);
         projectile.registerForCollisions(target, tankGame.collision.blowUp);
     }
 
