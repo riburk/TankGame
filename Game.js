@@ -23,10 +23,15 @@
     var gameLevel = 0;
 
     document.addEventListener("explosionStart", function(e){
+        disableControls();
+        removeKeyHandlers();
         tryCount = 0;
         projectile = null;
+        gameScore += tankGame.levelScore;
+        document.getElementById("gameScoreValue").innerHTML = gameScore.toString();
     });
     document.addEventListener("explosionEnd", function(e){
+
         setTimeout(levelUp, 2000);
     });
 
@@ -157,8 +162,6 @@
 
     function restart() {
         hideGameOverMessage();
-        addKeyHandlers();
-        enableControls();
         document.getElementById("fireButton").focus();
         tryCount = 0;
         numGroundSegments = initialGroundSegments;
@@ -175,6 +178,8 @@
     }
 
     function levelUp() {
+        addKeyHandlers();
+        enableControls();
         clearInterval(tankGame.animationInterval);
         worldBox.draw("black", "#FAF7F8");
 
@@ -185,11 +190,8 @@
         var tankLocationX = 1.5 * surface.segmentWidth;
         tank.setLocation(tankLocationX, tankLocationY);
         projectile = null;
-        gameScore += tankGame.levelScore;
-        document.getElementById("gameScoreValue").innerHTML = gameScore.toString();
         gameLevel++;
         tankGame.levelScore = 500 + (gameLevel * 100);
-        //document.getElementById("levelScoreLabel").innerHTML = tankGame.levelScore;
 
         tankGame.animationInterval = setInterval(draw, 15);
     }
