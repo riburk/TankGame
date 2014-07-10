@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754814c9-02dd-4821-9e30-38de570709d2" name="Default" comment="Updates to workspace">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game.js" afterPath="$PROJECT_DIR$/Game.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sound.js" afterPath="$PROJECT_DIR$/Sound.js" />
     </list>
     <ignored path="TankGame.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,26 +38,16 @@
       <file leaf-file-name="workspace.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12480">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12510">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1404868825000" expanded="true" signature="59:44541" placeholder="..." />
-                <marker date="1404868825000" expanded="true" signature="98:212" placeholder="..." />
-                <marker date="1404868825000" expanded="true" signature="44442:44530" placeholder="..." />
-                <marker date="1404868825000" expanded="true" signature="44442:44515" placeholder="..." />
-                <marker date="1404868825000" expanded="true" signature="44442:44502" placeholder="..." />
-                <marker date="1404868825000" expanded="true" signature="44442:44484" placeholder="..." />
+                <marker date="1404957292000" expanded="true" signature="59:44582" placeholder="..." />
+                <marker date="1404957292000" expanded="true" signature="98:212" placeholder="..." />
+                <marker date="1404957292000" expanded="true" signature="44483:44571" placeholder="..." />
+                <marker date="1404957292000" expanded="true" signature="44483:44556" placeholder="..." />
+                <marker date="1404957292000" expanded="true" signature="44483:44543" placeholder="..." />
+                <marker date="1404957292000" expanded="true" signature="44483:44525" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Collision.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Collision.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="1515">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TankGame.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TankGame.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TankGame.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.125" vertical-offset="231" max-vertical-offset="840">
+            <state vertical-scroll-proportion="0.76265824" vertical-offset="208" max-vertical-offset="840">
               <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
               <folding />
             </state>
@@ -122,11 +112,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Game.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3467742" vertical-offset="2020" max-vertical-offset="3765">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2410" max-vertical-offset="3765">
               <caret line="149" column="85" selection-start-line="149" selection-start-column="85" selection-end-line="149" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sound.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Sound.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="1005">
+              <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -153,7 +153,6 @@
         <option value="$PROJECT_DIR$/World.js" />
         <option value="$PROJECT_DIR$/Projectile.js" />
         <option value="$PROJECT_DIR$/Block.js" />
-        <option value="$PROJECT_DIR$/Sound.js" />
         <option value="$PROJECT_DIR$/TurretTest.html" />
         <option value="$PROJECT_DIR$/World_old.js" />
         <option value="$PROJECT_DIR$/Tank.js" />
@@ -164,6 +163,7 @@
         <option value="$PROJECT_DIR$/TankGame.html" />
         <option value="$PROJECT_DIR$/TankGame.css" />
         <option value="$PROJECT_DIR$/Game.js" />
+        <option value="$PROJECT_DIR$/Sound.js" />
       </list>
     </option>
   </component>
@@ -451,12 +451,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10170">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1404868825000" expanded="true" signature="59:44541" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="98:212" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44530" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44515" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44502" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44484" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="59:44582" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="98:212" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44571" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44556" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44543" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44525" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -538,12 +538,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8970">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1404868825000" expanded="true" signature="59:44541" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="98:212" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44530" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44515" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44502" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44484" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="59:44582" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="98:212" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44571" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44556" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44543" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44525" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -640,6 +640,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="945">
           <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -711,13 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sound.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Surface.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="885">
@@ -779,12 +773,12 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="4365" max-vertical-offset="8835">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1404868825000" expanded="true" signature="59:44541" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="98:212" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44530" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44515" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44502" placeholder="..." />
-            <marker date="1404868825000" expanded="true" signature="44442:44484" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="59:44582" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="98:212" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44571" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44556" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44543" placeholder="..." />
+            <marker date="1404957292000" expanded="true" signature="44483:44525" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -805,18 +799,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TankGame.html">
+    <entry file="file://$PROJECT_DIR$/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.125" vertical-offset="231" max-vertical-offset="840">
-          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2410" max-vertical-offset="3765">
+          <caret line="149" column="85" selection-start-line="149" selection-start-column="85" selection-end-line="149" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Game.js">
+    <entry file="file://$PROJECT_DIR$/Sound.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3467742" vertical-offset="2020" max-vertical-offset="3765">
-          <caret line="149" column="85" selection-start-line="149" selection-start-column="85" selection-end-line="149" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="1005">
+          <caret line="31" column="74" selection-start-line="31" selection-start-column="74" selection-end-line="31" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TankGame.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76265824" vertical-offset="208" max-vertical-offset="840">
+          <caret line="46" column="45" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
           <folding />
         </state>
       </provider>

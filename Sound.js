@@ -3,10 +3,11 @@
  */
 
 (function(tankGame){
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
     tankGame.sound =
     {
-
-        context : new window.webkitAudioContext(),
+        context : new window.AudioContext(),
         source : null,
         bangBuffer : null,
         boomBuffer : null,
@@ -22,17 +23,18 @@
 
         stopSound : function() {
             if (tankGame.sound.source) {
-                tankGame.sound.source.noteOff(0);
+                tankGame.sound.source = '';
             }
         },
 
-        playSound: function(buffer) {
-            // source is global so we can call .noteOff() later.
+        playSound: function(buffer, currentTime) {
+            tankGame.sound.currentTime = currentTime || 0;
+            // source is global so we can unset it later to stop the sound.
             tankGame.sound.source = tankGame.sound.context.createBufferSource();
             tankGame.sound.source.buffer = buffer;
             tankGame.sound.source.loop = false;
             tankGame.sound.source.connect(tankGame.sound.context.destination);
-            tankGame.sound.source.noteOn(0); // Play immediately.
+            tankGame.sound.source.start(0); // Play immediately.
         },
 
         initSound : function(arrayBuffer, audioBuffer) {
