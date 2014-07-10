@@ -151,6 +151,7 @@
         tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
         projectileVelocityEl = document.getElementById("projectileVelocity");
         document.getElementById("fireButton").addEventListener('click', fire, false);
+        document.getElementById("restart").addEventListener('click', restart, false);
         restart();
     }
 
@@ -158,8 +159,7 @@
         hideGameOverMessage();
         addKeyHandlers();
         enableControls();
-        var restartBtn = document.getElementById("restart");
-        restartBtn.onclick = restart;
+        document.getElementById("fireButton").focus();
         tryCount = 0;
         numGroundSegments = initialGroundSegments;
         worldBox = new tankGame.Rect().setValues(0, 0, tankGame.WIDTH, tankGame.HEIGHT);
