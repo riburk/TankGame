@@ -11,9 +11,11 @@ input[type="range"]{
 
 div#gameOver {
     display: none;
-    position: absolute;
-    left: 350px;
-    top: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -210px;
+    margin-left: -282px;
     font-size: 100px;
     z-index: 101;
     color: black;
