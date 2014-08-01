@@ -21,6 +21,7 @@
     var gameScore = 0;
     tankGame.levelScore = 0;
     var gameLevel = 0;
+    var gameMessage = {gameOver:"gameOver", gameStart:"startGame"};
 
     document.addEventListener("explosionStart", function(e){
         disableControls();
@@ -35,17 +36,22 @@
         setTimeout(levelUp, 2000);
     });
 
-    function showGameOverMessage() {
+    function showGameMessage(messageName) {
         disableControls();
         removeKeyHandlers();
         setTimeout(function(){
-                document.getElementById("gameOver").setAttribute("style", "display: block");
-                document.getElementById("restart").focus();
+                var messageBox = document.getElementById(messageName);
+                messageBox.setAttribute("style", "display: block");
+                messageBox.getElementsByClassName("start")[0].focus();
             }, 500);
     }
 
-    function hideGameOverMessage() {
-        document.getElementById("gameOver").setAttribute("style", "display: none");
+    function hideGameMessages() {
+//        document.getElementById("gameOver").setAttribute("style", "display: none");
+        var messages = document.getElementsByClassName("gameMessage");
+        Array.prototype.forEach.call(messages, function(el){
+          el.setAttribute("style", "display: none");
+        });
     }
 
 
@@ -56,7 +62,7 @@
         tankGame.sound.playSound(tankGame.sound.bonkBuffer);
 
         if(tryCount++ >= 3){
-            showGameOverMessage();
+            showGameMessage(gameMessage.gameOver);
         }
         setTimeout(function(){projectile = null}, 500);
     });
@@ -156,12 +162,17 @@
         tankGame.ctx.transform(1, 0, 0, -1, 0, tankGame.HEIGHT);
         projectileVelocityEl = document.getElementById("projectileVelocity");
         document.getElementById("fireButton").addEventListener('click', fire, false);
-        document.getElementById("restart").addEventListener('click', restart, false);
-        restart();
+        var buttons = document.getElementsByClassName("start");
+        Array.prototype.forEach.call(buttons,
+            function(el, index, array)
+            {
+                el.addEventListener('click', start, false);
+                });
+        showGameMessage(gameMessage.gameStart);
     }
 
-    function restart() {
-        hideGameOverMessage();
+    function start() {
+        hideGameMessages();
         document.getElementById("fireButton").focus();
         tryCount = 0;
         numGroundSegments = initialGroundSegments;

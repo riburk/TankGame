@@ -22,22 +22,73 @@
             This text is displayed if your browser
             does not support HTML5 Canvas.
         </canvas>
-        <div id="gameOver">Game Over</br>
-            <input id="restart" type="button" value="restart?"/>
+        <div id="gameOver" class="gameMessage">Game Over</br>
+            <input class="start" type="button" value="Restart?"/>
+        </div>
+        <div id="startGame" class="gameMessage">
+            <table>
+                <thead>
+                <tr>
+                    <th colspan="2">Control Keys</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>Increase initial velocity</td>
+                    <td>right arrow</td>
+                </tr>
+                <tr>
+                    <td>Decrease initial velocity</td>
+                    <td>left arrow</td>
+                </tr>
+                <tr>
+                    <td>Increase cannon angle</td>
+                    <td>up arrow</td>
+                </tr>
+                <tr>
+                    <td>Decrease cannon angle</td>
+                    <td>down arrow</td>
+                </tr>
+                <tr>
+                    <td>Increase cannon angle slowly</td>
+                    <td>shift + up arrow</td>
+                </tr>
+                <tr>
+                    <td>Decrease cannon angle slowly</td>
+                    <td>shift + down arrow</td>
+                </tr>
+                <tr>
+                    <td>Fire cannon</td>
+                    <td>space bar</td>
+                </tr>
+                <tfoot>
+                <tr>
+                    <td colspan="2"><input class="start" type="button" value="Start"/></td>
+                </tr>
+                </tfoot>
+            </table>
+
         </div>
     </div>
 
 </section>
 <section id="controls">
     <div id="tankControls">
-        <div id="angle">
-            <input id="angleDegrees" type="range" max="180" min="0" step=".1" value="99"
-                   oninput="tankGame.onAngleDegreeInput(this.value)"/>
-            <label id="angleDegreeLabel"></label>
+        <div id="sliderLabels">
+            <label>Cannon Angle</label>
+            <label>Muzzle Velocity</label>
         </div>
-        <div id="velocity">
-            <input id="projectileVelocity" type="range" max="20" min="10" step=".1" value="15"
-                   oninput="tankGame.onProjectileVelocityInput(this.value)"/>
+        <div id="sliders">
+            <div id="angle">
+                <input id="angleDegrees" type="range" max="180" min="0" step=".1" value="99"
+                       oninput="tankGame.onAngleDegreeInput(this.value)"/>
+            </div>
+            <div id="velocity">
+                <input id="projectileVelocity" type="range" max="20" min="10" step=".1" value="15"
+                       oninput="tankGame.onProjectileVelocityInput(this.value)"/>
+            </div>
+        </div>
+        <div id="sliderValueLabels">
+            <label id="angleDegreeLabel"></label>
             <label id="projectileVelocityLabel"></label>
         </div>
     </div>
